@@ -1,0 +1,19 @@
+
+------------------------------------------------------
+       cnn, gru, lstm 모델 모두 동일 설정
+------------------------------------------------------
+
+# bayesian optimization 하이퍼 파라미터 설정
+pbounds = {        
+        'drop' : (0.5,0.9),
+        "neurons" : (12,24),
+        'nb_batch' : (512,1024),
+        'hidden_layers' : (0,3)
+}
+
+
+# bayesian optimization 이터레이션 설정
+bo.maximize(
+   init_points=2,
+   n_iter=100
+)
